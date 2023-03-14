@@ -24,7 +24,18 @@
   "base",
   "column_break_9",
   "variable",
+  "hourly_rate",
+  "column_break_ttjob",
+  "required_hours",
+  "has_overtime_allowance",
   "amended_from",
+  "additional_monthly_salary",
+  "earnings",
+  "deductions",
+  "overtime_allowance",
+  "required_overtime_hours",
+  "column_break_juij7",
+  "required_double_overtime_hours",
   "earnings_and_taxation_section",
   "taxable_earnings_till_date",
   "column_break_20",
@@ -118,6 +129,7 @@
   {
    "fieldname": "variable",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Variable",
    "options": "currency"
   },
@@ -205,11 +217,75 @@
    "fieldtype": "Currency",
    "label": "Taxable Earnings Till Date",
    "options": "currency"
+  },
+  {
+   "description": "Hourly Rate of Employee",
+   "fieldname": "hourly_rate",
+   "fieldtype": "Currency",
+   "label": "Hourly Rate",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_break_ttjob",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "required_hours",
+   "fieldtype": "Float",
+   "label": "Required Hours",
+   "precision": "1"
+  },
+  {
+   "fieldname": "additional_monthly_salary",
+   "fieldtype": "Section Break",
+   "label": "Additional Monthly Salary"
+  },
+  {
+   "fieldname": "earnings",
+   "fieldtype": "Table",
+   "label": "Earnings",
+   "options": "Salary Detail"
+  },
+  {
+   "fieldname": "deductions",
+   "fieldtype": "Table",
+   "label": "Deductions",
+   "options": "Salary Detail"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_overtime_allowance",
+   "fieldtype": "Check",
+   "label": "Has Overtime Allowance"
+  },
+  {
+   "depends_on": "eval:doc.has_overtime_allowance == 1",
+   "fieldname": "overtime_allowance",
+   "fieldtype": "Section Break",
+   "label": "Overtime Allowance"
+  },
+  {
+   "fieldname": "required_overtime_hours",
+   "fieldtype": "Float",
+   "label": "Required Overtime Hours",
+   "mandatory_depends_on": "eval:doc.has_overtime_allowance == 1",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_juij7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "required_double_overtime_hours",
+   "fieldtype": "Float",
+   "label": "Required Double Overtime Hours",
+   "mandatory_depends_on": "eval:doc.has_overtime_allowance == 1",
+   "precision": "2"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-10 12:00:57.942233",
+ "modified": "2023-03-06 15:57:57.198610",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Salary Structure Assignment",

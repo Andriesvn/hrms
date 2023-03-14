@@ -5,7 +5,7 @@
    "label": "Hiring vs Attrition Count"
   }
  ],
- "content": "[{\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Human Resource\",\"col\":12}},{\"type\":\"chart\",\"data\":{\"chart_name\":\"Hiring vs Attrition Count\",\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Application\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HR Dashboard\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Recruitment Dashboard\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee Lifecycle Dashboard\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Attendance Dashboard\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Claims Dashboard\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Employee\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Leaves\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Attendance\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Expense Claim\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Key Reports\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"1FWmZIsBtN\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Human Resource\",\"col\":12}},{\"id\":\"dQ9VZLogjL\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Hiring vs Attrition Count\",\"col\":12}},{\"id\":\"TlaWlv8n0l\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"UvspqGc0oS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"nr9cMTS5Jr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Application\",\"col\":3}},{\"id\":\"I3sHzBB1ei\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HR Dashboard\",\"col\":3}},{\"id\":\"NkuZbd7Phf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Recruitment Dashboard\",\"col\":3}},{\"id\":\"XM7vvws20p\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee Lifecycle Dashboard\",\"col\":3}},{\"id\":\"NsakRts7wy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Attendance Dashboard\",\"col\":3}},{\"id\":\"uWKzfe_Aq_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Claims Dashboard\",\"col\":3}},{\"id\":\"X8dPbs1KQS\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"okAvD2d50E\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"yn0oYsQ1Uz\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}},{\"id\":\"C2CIvX5V4x\",\"type\":\"card\",\"data\":{\"card_name\":\"Employee\",\"col\":4}},{\"id\":\"tnMJcXfhtc\",\"type\":\"card\",\"data\":{\"card_name\":\"Leaves\",\"col\":4}},{\"id\":\"cO-NnAlkxJ\",\"type\":\"card\",\"data\":{\"card_name\":\"Attendance\",\"col\":4}},{\"id\":\"wir0wSVb5E\",\"type\":\"card\",\"data\":{\"card_name\":\"Time\",\"col\":4}},{\"id\":\"crsIolYgpa\",\"type\":\"card\",\"data\":{\"card_name\":\"Expense Claim\",\"col\":4}},{\"id\":\"1KqNpPt2SG\",\"type\":\"card\",\"data\":{\"card_name\":\"Key Reports\",\"col\":4}},{\"id\":\"DNnNf_upuu\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}},{\"id\":\"khLvkPI_Ez\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}}]",
  "creation": "2020-03-02 15:48:58.322521",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,6 +13,7 @@
  "hide_custom": 0,
  "icon": "hr",
  "idx": 0,
+ "is_hidden": 0,
  "label": "HR",
  "links": [
   {
@@ -90,6 +91,16 @@
    "label": "Employee Grade",
    "link_count": 0,
    "link_to": "Employee Grade",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Ethnic Group",
+   "link_count": 0,
+   "link_to": "Ethnic Group",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -339,9 +350,47 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Employee Manual Checkin Reason",
+   "link_count": 0,
+   "link_to": "Employee Manual Checkin Reason",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Employee Checkin",
    "link_count": 0,
    "link_to": "Employee Checkin",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Time",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Timesheet Period",
+   "link_count": 0,
+   "link_to": "Timesheet Period",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Monthly Timesheet",
+   "link_count": 0,
+   "link_to": "Monthly Timesheet",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -385,7 +434,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-12-06 16:55:59.080694",
+ "modified": "2023-03-07 10:49:46.485410",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "HR",
@@ -395,7 +444,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 8.0,
+ "sequence_id": 2.0,
  "shortcuts": [
   {
    "format": "{} Open",

@@ -8,6 +8,7 @@
  "hide_custom": 0,
  "icon": "crm",
  "idx": 0,
+ "is_hidden": 0,
  "label": "Tax & Benefits",
  "links": [
   {
@@ -133,7 +134,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-09-16 11:48:54.314522",
+ "modified": "2023-03-06 12:24:55.747410",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Tax & Benefits",
@@ -142,7 +143,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 38.0,
+ "sequence_id": 11.0,
  "shortcuts": [
   {
    "color": "Red",

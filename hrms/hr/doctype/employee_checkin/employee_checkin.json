@@ -18,7 +18,11 @@
   "shift_start",
   "shift_end",
   "shift_actual_start",
-  "shift_actual_end"
+  "shift_actual_end",
+  "is_manual",
+  "reason",
+  "notes_required",
+  "notes"
  ],
  "fields": [
   {
@@ -64,12 +68,14 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.is_manual==0",
    "fieldname": "device_id",
    "fieldtype": "Data",
    "label": "Location / Device ID"
   },
   {
    "default": "0",
+   "depends_on": "eval:doc.is_manual==0",
    "fieldname": "skip_auto_attendance",
    "fieldtype": "Check",
    "label": "Skip Auto Attendance"
@@ -104,13 +110,47 @@
    "fieldtype": "Datetime",
    "hidden": 1,
    "label": "Shift Actual End"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_manual",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Manual",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_manual==1",
+   "fieldname": "reason",
+   "fieldtype": "Link",
+   "label": "Reason",
+   "mandatory_depends_on": "eval:doc.is_manual==1",
+   "options": "Employee Manual Checkin Reason",
+   "read_only_depends_on": "eval:doc.is_manual==0"
+  },
+  {
+   "default": "0",
+   "fetch_from": "Reason.notes_required",
+   "fieldname": "notes_required",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "notes_required",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes",
+   "mandatory_depends_on": "eval:doc.is_manual==1&&doc.notes_required==1",
+   "read_only_depends_on": "eval:doc.is_manual==0||doc.notes_required==0"
   }
  ],
  "links": [],
- "modified": "2020-07-08 11:02:32.660986",
+ "modified": "2023-03-06 14:36:29.456645",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee Checkin",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -201,8 +241,9 @@
    "role": "Employee"
   }
  ],
- "sort_field": "modified",
- "sort_order": "ASC",
+ "sort_field": "time",
+ "sort_order": "DESC",
+ "states": [],
  "title_field": "employee_name",
  "track_changes": 1
 }

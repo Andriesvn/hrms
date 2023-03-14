@@ -29,6 +29,20 @@
   "expense_approver_mandatory_in_expense_claim",
   "show_leaves_of_all_department_members_in_calendar",
   "auto_leave_encashment",
+  "additional_settings_section",
+  "use_public_hours",
+  "public_holiday_list",
+  "column_break_azfmf",
+  "round_timesheet_hours",
+  "round_timesheet_hours_to",
+  "zk_integration",
+  "zk_host",
+  "zk_database",
+  "zk_user",
+  "zk_password",
+  "column_break_dz5xt",
+  "import_after_date",
+  "last_sync_id",
   "hiring_settings_section",
   "check_vacancies",
   "send_interview_reminder",
@@ -251,13 +265,94 @@
   {
    "fieldname": "column_break_34",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "additional_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Settings"
+  },
+  {
+   "default": "1",
+   "description": "Use Public Hours for Public Holidays in Monthly Timesheets",
+   "fieldname": "use_public_hours",
+   "fieldtype": "Check",
+   "label": "Use Public Hours"
+  },
+  {
+   "depends_on": "eval:doc.use_public_hours==1",
+   "description": "Holiday List Containing All Holidays to use Public Hours",
+   "fieldname": "public_holiday_list",
+   "fieldtype": "Link",
+   "label": "Public Holiday List",
+   "mandatory_depends_on": "eval:doc.use_public_hours==1",
+   "options": "Holiday List"
+  },
+  {
+   "fieldname": "column_break_azfmf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Round All Timesheet Hours",
+   "fieldname": "round_timesheet_hours",
+   "fieldtype": "Check",
+   "label": "Round Timesheet Hours"
+  },
+  {
+   "depends_on": "eval:doc.round_timesheet_hours==1",
+   "fieldname": "round_timesheet_hours_to",
+   "fieldtype": "Float",
+   "label": "Round Timesheet Hours To",
+   "mandatory_depends_on": "eval:doc.round_timesheet_hours==1",
+   "non_negative": 1,
+   "precision": "1"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "zk_integration",
+   "fieldtype": "Section Break",
+   "label": "ZK Integration"
+  },
+  {
+   "fieldname": "zk_host",
+   "fieldtype": "Data",
+   "label": "ZK Host"
+  },
+  {
+   "fieldname": "zk_database",
+   "fieldtype": "Data",
+   "label": "ZK Database"
+  },
+  {
+   "fieldname": "zk_user",
+   "fieldtype": "Data",
+   "label": "ZK User"
+  },
+  {
+   "fieldname": "zk_password",
+   "fieldtype": "Password",
+   "label": "ZK Password"
+  },
+  {
+   "fieldname": "column_break_dz5xt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_sync_id",
+   "fieldtype": "Data",
+   "label": "Last Sync Id"
+  },
+  {
+   "fieldname": "import_after_date",
+   "fieldtype": "Date",
+   "label": "Import After"
   }
  ],
  "icon": "fa fa-cog",
  "idx": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-10-04 17:29:45.926918",
+ "modified": "2023-03-06 15:41:08.290930",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "HR Settings",
@@ -275,5 +370,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "ASC",
+ "states": [],
  "track_changes": 1
 }

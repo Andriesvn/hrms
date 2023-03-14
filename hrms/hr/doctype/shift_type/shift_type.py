@@ -6,6 +6,7 @@ import itertools
 from datetime import datetime, timedelta
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import cint, get_datetime, get_time, getdate
 
@@ -22,6 +23,25 @@ from hrms.hr.doctype.shift_assignment.shift_assignment import get_employee_shift
 
 
 class ShiftType(Document):
+	def validate(self):
+		self.validate_shift_type_break_times()
+
+	def validate_shift_type_break_times(self):
+		if self.break_times != None and len(self.break_times) > 0:
+			for break_time in self.break_times:
+				if break_time.end_time <= break_time.start_time:
+					frappe.throw(_("Break Start Time cannot be more than End Time"))
+				#Validate Not Overlap
+				if len(self.break_times) > 1:
+					self.validate_overlapping_times(break_time, self.break_times)
+
+	def validate_overlapping_times(self,break_time, break_times_list):
+		for cur_break_time in break_times_list:
+			if cur_break_time.name != break_time.name:
+				if (cur_break_time.start_time >= break_time.start_time and cur_break_time.start_time < break_time.end_time) or \
+				(cur_break_time.end_time > break_time.start_time and cur_break_time.end_time <= break_time.end_time):
+					frappe.throw(_("Break times overlap"))
+
 	@frappe.whitelist()
 	def process_auto_attendance(self):
 		if (

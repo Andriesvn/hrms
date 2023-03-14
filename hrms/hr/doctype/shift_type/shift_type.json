@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "prompt",
  "creation": "2018-04-13 16:22:52.954783",
  "doctype": "DocType",
@@ -10,6 +11,7 @@
   "column_break_3",
   "holiday_list",
   "enable_auto_attendance",
+  "breaks_allowed",
   "auto_attendance_settings_section",
   "determine_check_in_and_check_out",
   "working_hours_calculation_based_on",
@@ -20,12 +22,25 @@
   "working_hours_threshold_for_absent",
   "process_attendance_after",
   "last_sync_of_checkin",
+  "additional_calculation",
+  "required_hours_for_overtime",
+  "on_leave_hours",
+  "column_break_4xkrg",
+  "shift_hours_type",
+  "assign_overtime_to",
+  "flag_manual_checkins",
   "grace_period_settings_auto_attendance_section",
   "enable_entry_grace_period",
   "late_entry_grace_period",
   "column_break_18",
   "enable_exit_grace_period",
-  "early_exit_grace_period"
+  "early_exit_grace_period",
+  "break_settings",
+  "break_times",
+  "column_break_hd0xd",
+  "break_times_type",
+  "allowed_break_time",
+  "auto_deduct_break"
  ],
  "fields": [
   {
@@ -156,12 +171,98 @@
    "fieldname": "last_sync_of_checkin",
    "fieldtype": "Datetime",
    "label": "Last Sync of Checkin"
+  },
+  {
+   "default": "0",
+   "fieldname": "breaks_allowed",
+   "fieldtype": "Check",
+   "label": "Breaks Allowed"
+  },
+  {
+   "fieldname": "additional_calculation",
+   "fieldtype": "Section Break",
+   "label": "Additional Calculation"
+  },
+  {
+   "description": "Hours required before counting as Overtime",
+   "fieldname": "required_hours_for_overtime",
+   "fieldtype": "Float",
+   "label": "Required Hours for Overtime"
+  },
+  {
+   "description": "Working hours when on leave",
+   "fieldname": "on_leave_hours",
+   "fieldtype": "Float",
+   "label": "On Leave Hours"
+  },
+  {
+   "fieldname": "column_break_4xkrg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Normal Hours",
+   "fieldname": "shift_hours_type",
+   "fieldtype": "Select",
+   "label": "Shift Hours Type",
+   "options": "Normal Hours\nOvertime\nDouble Overtime\nPublic Hours"
+  },
+  {
+   "default": "Overtime",
+   "fieldname": "assign_overtime_to",
+   "fieldtype": "Select",
+   "label": "Use Overtime",
+   "options": "Overtime\nDouble Overtime"
+  },
+  {
+   "default": "0",
+   "fieldname": "flag_manual_checkins",
+   "fieldtype": "Check",
+   "label": "Flag Manual Check-ins"
+  },
+  {
+   "depends_on": "eval:doc.breaks_allowed==1",
+   "fieldname": "break_settings",
+   "fieldtype": "Section Break",
+   "label": "Break Settings"
+  },
+  {
+   "fieldname": "break_times",
+   "fieldtype": "Table",
+   "label": "Break Times",
+   "options": "Shift Type Break Time"
+  },
+  {
+   "fieldname": "column_break_hd0xd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Allowed",
+   "description": "Use Breaktimes as Allowed or Not Allowed",
+   "fieldname": "break_times_type",
+   "fieldtype": "Select",
+   "label": "Break Times Type",
+   "options": "Allowed\nNot Allowed"
+  },
+  {
+   "description": "Max Allowed Break Time in Minutes",
+   "fieldname": "allowed_break_time",
+   "fieldtype": "Int",
+   "label": "Allowed Break Time"
+  },
+  {
+   "default": "0",
+   "description": "Auto Deduct Time from Working Hours",
+   "fieldname": "auto_deduct_break",
+   "fieldtype": "Check",
+   "label": "Auto Deduct"
   }
  ],
- "modified": "2019-07-30 01:05:24.660666",
+ "links": [],
+ "modified": "2023-03-06 14:14:03.871411",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Shift Type",
+ "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
   {
@@ -200,5 +301,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
