@@ -69,6 +69,11 @@ frappe.query_reports["Working Schedule"] = {
 		"options": "Employee Grade",
 	},
 	],
+	onload: () => {
+		frappe.query_report.set_filter_value("company", frappe.defaults.get_user_default("Company"));
+		frappe.query_report.set_filter_value("date_from", frappe.datetime.get_today());
+		frappe.query_report.set_filter_value('date_to',frappe.datetime.add_months(frappe.datetime.get_today(), 1));
+	},
 	"formatter": function(value, row, column, data, default_formatter) {
 		value = default_formatter(value, row, column, data);
 		if (data && column.fieldname=="employee_name") {

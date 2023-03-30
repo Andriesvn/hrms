@@ -53,7 +53,6 @@ class ShiftPattern(Document):
 			default_shift = frappe.get_doc('Shift Type', employee.default_shift)
 		if default_shift != None and default_shift.holiday_list != None and default_shift.holiday_list.strip() != "":
 			default_shift._holiday_list = frappe.get_doc('Holiday List', default_shift.holiday_list)
-		
 		def_shift_assignment = {
 			"doctype":"Shift Assignment",
 			'employee': employee.name,
@@ -94,7 +93,7 @@ class ShiftPattern(Document):
 					#we need to save the cur_shift_assignement and make it None
 					save_shift_assinment(cur_shift_assignement)
 					cur_shift_assignement = None
-				#here we also need to validate that the default shift does not Conflict with the off day assignement	
+				#here we also need to validate that the default shift does not Conflict with the off day assignement
 				if is_default_working and is_off and not is_public_holiday:
 					frappe.throw(
 						_("Employee {0} - {1}'s Default Shift Conflicts with This shift assignemnt : {2} on {3}")

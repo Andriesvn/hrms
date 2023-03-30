@@ -178,6 +178,7 @@ scheduler_events = {
 	],
 	"hourly_long": [
 		"hrms.hr.doctype.shift_type.shift_type.process_auto_attendance_for_all_shifts",
+        "hrms.hr.utilities.zk_clocking_sheduler.import_employee_clockings_since_last_sync",
 	],
 	"daily": [
 		"hrms.controllers.employee_reminders.send_birthday_reminders",

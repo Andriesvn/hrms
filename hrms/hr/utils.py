@@ -185,6 +185,10 @@ def get_doc_condition(doctype):
 		return "and company = %(company)s and (from_date between %(from_date)s and %(to_date)s \
 			or to_date between %(from_date)s and %(to_date)s \
 			or (from_date < %(from_date)s and to_date > %(to_date)s))"
+	elif doctype == "Timesheet Period":
+		return "and company = %(company)s and (date_from between %(from_date)s and %(to_date)s \
+			or date_to between %(from_date)s and %(to_date)s \
+			or (date_from < %(from_date)s and date_to > %(to_date)s))"
 
 
 def throw_overlap_error(doc, exists_for, overlap_doc, from_date, to_date):

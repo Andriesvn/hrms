@@ -390,7 +390,7 @@ class MonthlyTimesheet(Document):
 		
 		#if default_employee_holiday_list_name != None:
 			#date_is_not_working = is_holiday(default_employee_holiday_list_name, parsed_date)
-		if shift != None:
+		if shift and shift != None:
 			detail.shift = shift.shift_type.name
 			detail._shift = shift.shift_type
 			detail.shift_required_hours = get_shift_required_hours(detail._shift)

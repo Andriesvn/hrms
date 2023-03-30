@@ -27,6 +27,16 @@ frappe.ui.form.on('Payroll Entry', {
 		});
 	},
 
+	branch_filters: function (frm) {
+		frm.set_query("branch", function () {
+			return {
+				"filters": {
+					"company": frm.doc.company,
+				}
+			};
+		});
+	},
+
 	payroll_payable_account_filters: function (frm) {
 		frm.set_query("payroll_payable_account", function () {
 			return {
@@ -235,6 +245,7 @@ frappe.ui.form.on('Payroll Entry', {
 		frm.events.clear_employee_table(frm);
 		erpnext.accounts.dimensions.update_dimension(frm, frm.doctype);
 		frm.trigger("set_payable_account_and_currency");
+		frm.events.branch_filters(frm);
 	},
 
 	set_payable_account_and_currency: function (frm) {

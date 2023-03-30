@@ -80,8 +80,7 @@
   {
    "fieldname": "next_run_date",
    "fieldtype": "Date",
-   "label": "Next Run Date",
-   "read_only": 1
+   "label": "Next Run Date"
   },
   {
    "fieldname": "column_break_11",
@@ -113,16 +112,16 @@
   {
    "fieldname": "last_end_date",
    "fieldtype": "Date",
-   "label": "Last End Date",
-   "read_only": 1
+   "label": "Last End Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-05 13:57:20.852238",
+ "modified": "2023-03-29 13:35:30.442224",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Shift Pattern",
+ "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
   {
@@ -159,5 +158,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

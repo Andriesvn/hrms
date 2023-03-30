@@ -189,6 +189,7 @@ frappe.ui.form.on('Monthly Timesheet', {
 					read_only: 1,
 				},
 			],
+			btn: $('.btn-modal-primary'),
 			primary_action_label: __('Submit'),
 			primary_action(values) {
 				frappe.call({

@@ -7,6 +7,9 @@ from frappe.model.naming import set_name_by_naming_series
 from frappe.utils import add_years, cint, getdate
 
 from erpnext.setup.doctype.employee.employee import Employee
+from hrms.hr.utilities.zk_clocking_sheduler import (
+	insert_employee_clockings_from_zk_based_on_employee_field,
+)
 
 
 class EmployeeMaster(Employee):
@@ -101,3 +104,31 @@ def get_retirement_date(date_of_birth=None):
 		except ValueError:
 			# invalid date
 			return
+
+@frappe.whitelist()
+def download_employee_clockings(employee, date_from, date_to):
+	if getdate(date_from) >= getdate(date_to):
+			frappe.throw(_("To date can not be equal or less than from date"))
+	employee_doc = frappe.get_doc('Employee', employee)
+	if employee_doc == None:
+		frappe.throw(_("Cannot Find Employee"))
+	insert_employee_clockings_from_zk_based_on_employee_field(employee,date_from,date_to)
+
+@frappe.whitelist()
+def generate_shifts_for_employee(employee, date_from, date_to, shift_pattern):
+	if getdate(date_from) >= getdate(date_to):
+			frappe.throw(_("To date can not be equal or less than from date"))
+	
+	shift_pattern_doc = frappe.get_doc('Shift Pattern', shift_pattern)
+	if shift_pattern_doc == None:
+		frappe.throw(_("Cannot Find Shift Pattern"))
+	if (shift_pattern_doc):
+		employee_doc = frappe.get_doc('Employee', employee)
+		if employee_doc == None:
+			frappe.throw(_("Cannot Find Employee"))
+		shift_pattern_doc.build_shift_assignments_for_employees_by_date_range(date_from,date_to,[employee_doc],add_data = {
+				'auto_generated_shift_pattern': shift_pattern
+		})
+
+
+
